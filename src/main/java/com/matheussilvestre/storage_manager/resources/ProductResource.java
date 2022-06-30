@@ -1,6 +1,7 @@
 package com.matheussilvestre.storage_manager.resources;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.matheussilvestre.storage_manager.domain.Product;
+import com.matheussilvestre.storage_manager.dto.ProductDTO;
 import com.matheussilvestre.storage_manager.services.ProductService;
 
 @RestController
@@ -20,9 +22,10 @@ public class ProductResource {
 	
 	//@RequestMapping(method=RequestMethod.GET)
 	@GetMapping
-	public ResponseEntity<List<Product>> findAllProducts(){
+	public ResponseEntity<List<ProductDTO>> findAllProducts(){
 		List<Product> list = service.findAll();
-		return ResponseEntity.ok().body(list);
+		List<ProductDTO> listDTO = list.stream().map(x -> new ProductDTO(x)).collect(Collectors.toList());
+		return ResponseEntity.ok().body(listDTO);
 	}
 	
 }
