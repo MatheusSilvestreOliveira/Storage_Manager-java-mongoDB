@@ -14,16 +14,26 @@ public class Product implements Serializable{
 	private String product_name;
 	private String product_brand;
 	private double value;
-	//private Category category;
+	private Category category;
 	
 	public Product() {}
 	
-	public Product(String id, String product_name, String product_brand, double value) {
+	public Product(String id, String product_name, String product_brand, double value, Category category) {
 		super();
 		this.id = id;
 		this.product_name = product_name;
 		this.product_brand = product_brand;
 		this.value = value;
+		this.category = category;
+	}
+
+	
+	public Category getCategory() {
+		return category;
+	}
+
+	public void setCategory(Category category) {
+		this.category = category;
 	}
 
 	public String getId() {

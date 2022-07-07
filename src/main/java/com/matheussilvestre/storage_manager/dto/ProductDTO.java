@@ -2,6 +2,7 @@ package com.matheussilvestre.storage_manager.dto;
 
 import java.io.Serializable;
 
+import com.matheussilvestre.storage_manager.domain.Category;
 import com.matheussilvestre.storage_manager.domain.Product;
 
 public class ProductDTO implements Serializable {
@@ -11,6 +12,7 @@ public class ProductDTO implements Serializable {
 	private String product_name;
 	private String product_brand;
 	private double value;
+	private Category category;
 	
 	public ProductDTO() {}
 	
@@ -19,6 +21,16 @@ public class ProductDTO implements Serializable {
 		product_name = product.getProduct_name();
 		product_brand = product.getProduct_brand();
 		value = product.getValue();
+		category = product.getCategory();
+	}
+
+		
+	public Category getCategory() {
+		return category;
+	}
+
+	public void setCategory(Category category) {
+		this.category = category;
 	}
 
 	public String getId() {
