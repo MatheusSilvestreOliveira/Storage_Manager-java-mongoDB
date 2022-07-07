@@ -46,8 +46,8 @@ public class Product implements Serializable{
 		return value;
 	}
 
-	public void setValue(float value) {
-		this.value = value;
+	public void setValue(double d) {
+		this.value = d;
 	}
 
 	public String getProduct_brand() {
