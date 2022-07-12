@@ -12,8 +12,6 @@ public class ProductDTO implements Serializable {
 	private String product_name;
 	private String product_brand;
 	private double value;
-	private int quantity;
-	private double total_value;
 	private Category category;
 	
 	public ProductDTO() {}
@@ -23,28 +21,9 @@ public class ProductDTO implements Serializable {
 		product_name = product.getProduct_name();
 		product_brand = product.getProduct_brand();
 		value = product.getValue();
-		quantity = product.getQuantity();
-		total_value = value * quantity;
 		category = product.getCategory();
 	}
 
-	
-	
-	public double getTotal_value() {
-		return total_value;
-	}
-
-	public void setTotal_value() {
-		this.total_value = value * quantity;
-	}
-
-	public int getQuantity() {
-		return quantity;
-	}
-
-	public void setQuantity(int quantity) {
-		this.quantity = quantity;
-	}
 
 	public Category getCategory() {
 		return category;
