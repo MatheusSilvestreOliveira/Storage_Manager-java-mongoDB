@@ -46,6 +46,7 @@ public class ProductService {
 		attProd.setProduct_brand(obj.getProduct_brand());
 		attProd.setValue(obj.getValue());
 		attProd.setCategory(obj.getCategory());
+		attProd.setStorages(obj.getStorages());
 	}
 	
 	public Product fromDTO(ProductDTO objDto) {

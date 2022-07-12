@@ -1,7 +1,16 @@
 package com.matheussilvestre.storage_manager.domain;
 
-public class ProductInStorage {
+import java.io.Serializable;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Document(collection = "product_in_storage")
+public class ProductInStorage implements Serializable{
+	private static final long serialVersionUID = 1L;
+	
+	@Id
+	private String id;
 	private String storage_id;
 	private String product_id;
 	private int product_quantity;
@@ -12,13 +21,25 @@ public class ProductInStorage {
 	public ProductInStorage() {}
 
 
-	public ProductInStorage(Storage storage, Product product, int product_quantity) {
+	public ProductInStorage(String id, Storage storage, Product product, int product_quantity) {
 		super();
+		this.id = id;
 		this.storage_id = storage.getId();
 		this.product_id = product.getId();
 		this.product_quantity = product_quantity;
 		this.product_value = product.getValue();
 		this.total_value = this.product_quantity * this.product_value;
+	}
+
+	
+	
+	public String getId() {
+		return id;
+	}
+
+
+	public void setId(String id) {
+		this.id = id;
 	}
 
 

@@ -1,9 +1,12 @@
 package com.matheussilvestre.storage_manager.dto;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.matheussilvestre.storage_manager.domain.Category;
 import com.matheussilvestre.storage_manager.domain.Product;
+import com.matheussilvestre.storage_manager.domain.Storage;
 
 public class ProductDTO implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -13,6 +16,7 @@ public class ProductDTO implements Serializable {
 	private String product_brand;
 	private double value;
 	private Category category;
+	private List<Storage> storages = new ArrayList<>();
 	
 	public ProductDTO() {}
 	
@@ -22,8 +26,18 @@ public class ProductDTO implements Serializable {
 		product_brand = product.getProduct_brand();
 		value = product.getValue();
 		category = product.getCategory();
+		storages = product.getStorages();
 	}
 
+	
+
+	public List<Storage> getStorages() {
+		return storages;
+	}
+
+	public void setStorages(List<Storage> storages) {
+		this.storages = storages;
+	}
 
 	public Category getCategory() {
 		return category;

@@ -8,8 +8,10 @@ import org.springframework.context.annotation.Configuration;
 
 import com.matheussilvestre.storage_manager.domain.Category;
 import com.matheussilvestre.storage_manager.domain.Product;
+import com.matheussilvestre.storage_manager.domain.ProductInStorage;
 import com.matheussilvestre.storage_manager.domain.Storage;
 import com.matheussilvestre.storage_manager.repository.CategoryRepository;
+import com.matheussilvestre.storage_manager.repository.ProductInStorageRepository;
 import com.matheussilvestre.storage_manager.repository.ProductRepository;
 import com.matheussilvestre.storage_manager.repository.StorageRepository;
 
@@ -24,6 +26,9 @@ public class Instantiation implements CommandLineRunner{
 	
 	@Autowired
 	private StorageRepository storageRepository;
+	
+	@Autowired
+	private ProductInStorageRepository productInStorageRepository;
 	
 	@Override
 	public void run(String... args) throws Exception {
@@ -55,6 +60,25 @@ public class Instantiation implements CommandLineRunner{
 		
 		productRepository.saveAll(Arrays.asList(p1, p2, p3, p4, p5));
 		
+		ProductInStorage ps1 = new ProductInStorage(null, s1, p1, 15);
+		ProductInStorage ps2 = new ProductInStorage(null, s1, p2, 32);
+		ProductInStorage ps3 = new ProductInStorage(null, s1, p5, 13);
+		
+		ProductInStorage ps4 = new ProductInStorage(null, s2, p1, 23);
+		ProductInStorage ps5 = new ProductInStorage(null, s2, p2, 8);
+		ProductInStorage ps6 = new ProductInStorage(null, s2, p3, 18);
+		ProductInStorage ps7 = new ProductInStorage(null, s2, p4, 27);
+		ProductInStorage ps8 = new ProductInStorage(null, s2, p5, 3);
+
+		ProductInStorage ps9 = new ProductInStorage(null, s3, p3, 54);
+		ProductInStorage ps10 = new ProductInStorage(null, s3, p4, 42);
+		
+		ProductInStorage ps11 = new ProductInStorage(null, s2, p1, 7);
+		ProductInStorage ps12 = new ProductInStorage(null, s2, p2, 19);
+		ProductInStorage ps13 = new ProductInStorage(null, s2, p3, 4);
+		ProductInStorage ps14 = new ProductInStorage(null, s2, p5, 14);
+		
+		productInStorageRepository.saveAll(Arrays.asList(ps1, ps2, ps3, ps4, ps5, ps6, ps7, ps8, ps9, ps10, ps11, ps12, ps13, ps14));
 	}
 
 }

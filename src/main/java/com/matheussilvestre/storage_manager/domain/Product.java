@@ -1,8 +1,11 @@
 package com.matheussilvestre.storage_manager.domain;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection = "product")
@@ -16,6 +19,9 @@ public class Product implements Serializable{
 	private double value;
 	private Category category;
 	
+	@DBRef(lazy = true)
+	private List<Storage> storages = new ArrayList<>();
+	
 	public Product() {}
 	
 	public Product(String id, String product_name, String product_brand, double value, Category category) {
@@ -25,6 +31,16 @@ public class Product implements Serializable{
 		this.product_brand = product_brand;
 		this.value = value;
 		this.category = category;
+	}
+
+	
+	
+	public List<Storage> getStorages() {
+		return storages;
+	}
+
+	public void setStorages(List<Storage> storages) {
+		this.storages = storages;
 	}
 
 	public Category getCategory() {

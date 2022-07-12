@@ -42,6 +42,10 @@ public class StorageService {
 
 	private void updateData(Storage attSto, Storage obj) {
 		attSto.setStorage_unit(obj.getStorage_unit());
+		attSto.setAddress(obj.getAddress());
+		attSto.setCountry(obj.getCountry());
+		attSto.setState(obj.getState());
+		attSto.setProducts(obj.getProducts());
 	}
 	
 }
