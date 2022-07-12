@@ -14,20 +14,32 @@ public class Product implements Serializable{
 	private String product_name;
 	private String product_brand;
 	private double value;
+	private int quantity;
+	private double total_value;
 	private Category category;
 	
 	public Product() {}
 	
-	public Product(String id, String product_name, String product_brand, double value, Category category) {
+	public Product(String id, String product_name, String product_brand, double value, int quantity, Category category) {
 		super();
 		this.id = id;
 		this.product_name = product_name;
 		this.product_brand = product_brand;
 		this.value = value;
+		this.quantity = quantity;
+		this.total_value = value * quantity;
 		this.category = category;
 	}
 
 	
+	public double getTotal_value() {
+		return total_value;
+	}
+
+	public void setTotal_value() {
+		this.total_value = this.value * this.quantity;
+	}
+
 	public Category getCategory() {
 		return category;
 	}
@@ -67,6 +79,14 @@ public class Product implements Serializable{
 	public void setProduct_brand(String product_brand) {
 		this.product_brand = product_brand;
 	}
+	
+	public int getQuantity() {
+		return quantity;
+	}
+
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
+	}
 
 	@Override
 	public int hashCode() {
@@ -92,6 +112,5 @@ public class Product implements Serializable{
 			return false;
 		return true;
 	}
-
 	
 }

@@ -49,6 +49,6 @@ public class ProductService {
 	}
 	
 	public Product fromDTO(ProductDTO objDto) {
-		return new Product(objDto.getId(), objDto.getProduct_name(), objDto.getProduct_brand(), objDto.getValue(), objDto.getCategory());
+		return new Product(objDto.getId(), objDto.getProduct_name(), objDto.getProduct_brand(), objDto.getValue(), objDto.getQuantity(), objDto.getCategory());
 	}
 }
